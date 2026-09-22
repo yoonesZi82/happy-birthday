@@ -61,11 +61,11 @@ export function ProfileCard({ person, onRelaunch }: ProfileCardProps) {
         </p>
       </div>
 
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-slate-800 pt-4">
+      <div className="mt-6 flex flex-col items-stretch gap-3 border-t border-slate-800 pt-4 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4">
         <p className="text-xs text-muted-foreground">میخوای دوباره جشن بگیریم؟</p>
         <Button
           onClick={onRelaunch}
-          className="h-auto rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 px-5 py-2.5 text-sm font-bold text-black shadow-lg shadow-primary/25 hover:from-amber-400 hover:to-yellow-500"
+          className="h-auto w-full rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 px-5 py-2.5 text-sm font-bold text-black shadow-lg shadow-primary/25 hover:from-amber-400 hover:to-yellow-500 sm:w-auto"
         >
           🎈 پرتاب مجدد بادکنک‌ها و نورافشانی
         </Button>

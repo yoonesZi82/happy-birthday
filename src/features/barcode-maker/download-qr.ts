@@ -16,11 +16,6 @@ export function downloadBlob(blob: Blob, fileName: string): void {
   URL.revokeObjectURL(href)
 }
 
-export function downloadSvgElement(svg: SVGElement, fileName: string): void {
-  const blob = new Blob([svg.outerHTML], { type: 'image/svg+xml;charset=utf-8' })
-  downloadBlob(blob, fileName)
-}
-
 export async function downloadPngFromSvg(
   svg: SVGElement,
   fileName: string,

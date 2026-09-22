@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils'
 
 const MUSIC_SRC = '/music/happy-birthday.mp3'
 
-export function MusicPlayer() {
+export function MusicPlayer({ className }: { className?: string }) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isWelcomeOpen, setIsWelcomeOpen] = useState(true)
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -108,10 +108,20 @@ export function MusicPlayer() {
         type="button"
         onClick={() => void toggleMusic()}
         className={cn(
-          'glass-panel group flex cursor-pointer items-center gap-3 rounded-full border border-primary/30 px-4 py-2 transition hover:border-primary',
+          'glass-panel group flex cursor-pointer items-center gap-2 rounded-full border border-primary/30 px-3 py-2 transition hover:border-primary sm:gap-3 sm:px-4',
+          className,
         )}
       >
-        <div className="flex h-6 items-end gap-1 px-1">
+        <div className="min-w-0 flex-1 text-right">
+          <p className="flex items-center justify-start gap-1 truncate text-xs font-semibold text-primary">
+            <Music2 className="size-3.5 shrink-0" />
+            آهنگ جشن تولد
+          </p>
+          <p className="truncate text-right text-[10px] text-muted-foreground">
+            {isPlaying ? 'در حال پخش جشن' : 'برای پخش لمس کنید'}
+          </p>
+        </div>
+        <div className="flex h-6 shrink-0 items-end gap-1 px-1">
           {[1, 2, 3, 4].map((bar) => (
             <span
               key={bar}
@@ -122,16 +132,7 @@ export function MusicPlayer() {
             />
           ))}
         </div>
-        <div className="text-right">
-          <p className="flex items-center gap-1 text-xs font-semibold text-primary">
-            آهنگ جشن تولد
-            <Music2 className="size-3.5" />
-          </p>
-          <p className="text-[10px] text-muted-foreground">
-            {isPlaying ? 'در حال پخش جشن' : 'برای پخش لمس کنید'}
-          </p>
-        </div>
-        <span className="flex size-8 items-center justify-center rounded-full bg-primary/20 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+        <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
           {isPlaying ? <Pause className="size-4" /> : <Play className="size-4" />}
         </span>
       </button>

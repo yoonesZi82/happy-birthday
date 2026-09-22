@@ -47,25 +47,27 @@ export function BirthdayPage() {
       <Starfield />
       <Balloons burstKey={burstKey} />
 
-      <header className="relative z-30 mx-auto grid max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-3 px-6 pt-6">
-        <div className="glass-panel flex items-center gap-3 justify-self-start rounded-full border border-primary/30 px-4 py-2">
-          <span className="relative flex size-3">
+      <header className="relative z-30 mx-auto flex max-w-6xl flex-col gap-3 px-4 pt-4 sm:px-6 sm:pt-6 md:grid md:grid-cols-[1fr_auto_1fr] md:items-center">
+        <div className="flex items-center gap-2 md:contents">
+          <div className="glass-panel flex shrink-0 items-center justify-center rounded-2xl border border-white/10 px-2 py-1.5 md:col-start-2 md:justify-self-center">
+            <img
+              src={logoLotus}
+              alt="لوگوی موسسه"
+              className="size-10 rounded-xl object-cover drop-shadow-[0_0_12px_rgba(245,158,11,0.35)]"
+            />
+          </div>
+          <div className="min-w-0 flex-1 md:col-start-3 md:justify-self-end">
+            <MusicPlayer className="w-full md:w-auto" />
+          </div>
+        </div>
+        <div className="glass-panel flex w-full items-center justify-center gap-3 rounded-full border border-primary/30 px-4 py-2 md:col-start-1 md:row-start-1 md:w-auto md:justify-self-start">
+          <span className="relative flex size-3 shrink-0">
             <span className="absolute inline-flex size-full animate-ping rounded-full bg-amber-400 opacity-75" />
             <span className="relative inline-flex size-3 rounded-full bg-amber-500" />
           </span>
-          <span className="text-xs font-medium tracking-wide text-amber-200 md:text-sm">
+          <span className="text-center text-xs font-medium tracking-wide text-amber-200 md:text-sm">
             دعوت‌نامه اختصاصی متولد {person.zodiac.nameFa} ✨
           </span>
-        </div>
-        <div className="glass-panel flex items-center justify-center rounded-2xl border border-white/10 px-2 py-1.5">
-          <img
-            src={logoLotus}
-            alt="لوگوی موسسه"
-            className="size-10 rounded-xl object-cover drop-shadow-[0_0_12px_rgba(245,158,11,0.35)]"
-          />
-        </div>
-        <div className="justify-self-end">
-          <MusicPlayer />
         </div>
       </header>
 
