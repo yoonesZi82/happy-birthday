@@ -151,11 +151,7 @@ export function BarcodeMakerPage() {
                     </Button>
                   </div>
                 </div>
-              ) : (
-                <p className="rounded-2xl border border-dashed border-white/15 bg-black/10 px-4 py-3 text-sm text-slate-400">
-                  برای ساخت QR Code، دامنه سایت، نام و تاریخ تولد را کامل کنید.
-                </p>
-              )}
+              ) : null}
             </div>
           </section>
 
