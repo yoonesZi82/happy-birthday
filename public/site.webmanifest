@@ -1,0 +1,28 @@
+{
+  "name": "جشن تولد کهکشانی",
+  "short_name": "زادروز",
+  "description": "دعوت‌نامه اختصاصی جشن تولد کهکشانی",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060814",
+  "theme_color": "#060814",
+  "lang": "fa-IR",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.jpg",
+      "sizes": "180x180",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/og-image.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

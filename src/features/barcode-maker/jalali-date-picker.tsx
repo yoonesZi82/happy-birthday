@@ -86,8 +86,8 @@ export function JalaliDatePicker({ value, onChange, className }: JalaliDatePicke
               type="button"
               variant="ghost"
               size="icon-sm"
-              onClick={() => shiftYear(1)}
-              aria-label="سال بعد"
+              onClick={() => shiftYear(-1)}
+              aria-label="سال قبل"
             >
               <ChevronRight className="size-4" />
               <ChevronRight className="-ms-2 size-4 opacity-70" />
@@ -96,8 +96,8 @@ export function JalaliDatePicker({ value, onChange, className }: JalaliDatePicke
               type="button"
               variant="ghost"
               size="icon-sm"
-              onClick={() => shiftMonth(1)}
-              aria-label="ماه بعد"
+              onClick={() => shiftMonth(-1)}
+              aria-label="ماه قبل"
             >
               <ChevronRight className="size-4" />
             </Button>
@@ -110,8 +110,8 @@ export function JalaliDatePicker({ value, onChange, className }: JalaliDatePicke
               type="button"
               variant="ghost"
               size="icon-sm"
-              onClick={() => shiftMonth(-1)}
-              aria-label="ماه قبل"
+              onClick={() => shiftMonth(1)}
+              aria-label="ماه بعد"
             >
               <ChevronLeft className="size-4" />
             </Button>
@@ -119,8 +119,8 @@ export function JalaliDatePicker({ value, onChange, className }: JalaliDatePicke
               type="button"
               variant="ghost"
               size="icon-sm"
-              onClick={() => shiftYear(-1)}
-              aria-label="سال قبل"
+              onClick={() => shiftYear(1)}
+              aria-label="سال بعد"
             >
               <ChevronLeft className="-me-2 size-4 opacity-70" />
               <ChevronLeft className="size-4" />

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /make
+
+Sitemap: https://happy-birthday-two-inky-96.vercel.app/sitemap.xml

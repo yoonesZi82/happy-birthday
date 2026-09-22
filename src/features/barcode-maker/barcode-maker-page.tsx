@@ -7,6 +7,7 @@ import { Label } from '@/components/ui/label'
 import { toPersianDigits } from '@/lib/format'
 import type { Ymd } from '@/lib/jalali'
 import { formatJalaliYmd } from '@/lib/jalali'
+import { applyDocumentSeo } from '@/lib/seo'
 import { buildInviteUrl, resolveInviteOrigin } from './build-invite-url'
 import {
   buildQrFileBase,
@@ -26,6 +27,12 @@ export function BarcodeMakerPage() {
     document.documentElement.classList.add('dark')
     document.documentElement.lang = 'fa'
     document.documentElement.dir = 'rtl'
+    applyDocumentSeo({
+      title: 'ساخت QR Code جشن تولد | کارگاه دعوت‌نامه',
+      description: 'ساخت QR Code اختصاصی دعوت‌نامه جشن تولد با نام و تاریخ شمسی.',
+      path: '/make',
+      noIndex: true,
+    })
   }, [])
 
   const trimmedName = name.trim()

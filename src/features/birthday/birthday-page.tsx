@@ -5,6 +5,7 @@ import {
   parseBirthdayQuery,
   type BirthdayPerson,
 } from '@/lib/birthday'
+import { applyDocumentSeo, buildInviteSeo } from '@/lib/seo'
 import './birthday.css'
 import { Balloons } from './balloons'
 import { ConstellationCard } from './constellation-card'
@@ -27,8 +28,12 @@ export function BirthdayPage() {
     document.documentElement.dir = 'rtl'
     const parsed = parseBirthdayQuery(window.location.search)
     if (parsed) {
-      setPerson(buildBirthdayPerson(parsed.name, parsed.birthDate))
+      const nextPerson = buildBirthdayPerson(parsed.name, parsed.birthDate)
+      setPerson(nextPerson)
+      applyDocumentSeo(buildInviteSeo(nextPerson.name, firstName(nextPerson.name)))
+      return
     }
+    applyDocumentSeo({ path: '/' })
   }, [])
 
   if (!person) {
@@ -108,17 +113,14 @@ function MissingQueryHint() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#060814] px-6 text-center text-slate-100">
       <div className="glass-panel max-w-lg rounded-3xl border border-primary/30 p-8">
-        <h1 className="mb-3 text-2xl font-bold text-amber-200">لینک ناقص است</h1>
-        <p className="mb-4 text-sm leading-relaxed text-slate-300">
-          نام و تاریخ تولد باید از طریق کوئری URL بیاید.
+        <h1 className="mb-3 text-2xl font-bold text-amber-200">دعوت‌نامه پیدا نشد</h1>
+        <p className="mb-3 text-sm leading-relaxed text-slate-300">
+          این صفحه مخصوص دعوت‌نامه شخصی جشن تولد است. برای دیدن صفحه، باید لینک کامل دعوت‌نامه را باز کنید؛
+          لینکی که معمولاً با اسکن QR Code یا از پیام دوستتان می‌آید.
         </p>
-        <code className="block rounded-xl bg-black/50 p-3 text-left text-xs text-amber-200" dir="ltr">
-          ?name=آریا رادمنش&date=1377-11-15
-          <br />
-          ?name=آریا رادمنش&date=1999-02-04
-          <br />
-          ?name=آریا&jdate=۱۳۷۷/۱۱/۱۵
-        </code>
+        <p className="text-sm leading-relaxed text-slate-400">
+          اگر لینک را خودتان باز کرده‌اید، لطفاً دوباره QR Code را اسکن کنید یا از فرستنده لینک کامل را بخواهید.
+        </p>
       </div>
     </div>
   )
