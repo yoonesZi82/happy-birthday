@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import QRCode from 'react-qr-code'
-import { Check, Copy, Download, ImageDown, Link2, Sparkles } from 'lucide-react'
+import { Check, Copy, ImageDown, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -12,7 +12,6 @@ import { buildInviteUrl, resolveInviteOrigin } from './build-invite-url'
 import {
   buildQrFileBase,
   downloadPngFromSvg,
-  downloadSvgElement,
 } from './download-qr'
 import { JalaliDatePicker } from './jalali-date-picker'
 
@@ -55,14 +54,6 @@ export function BarcodeMakerPage() {
     await navigator.clipboard.writeText(inviteUrl)
     setCopied(true)
     window.setTimeout(() => setCopied(false), 1600)
-  }
-
-  function downloadSvg() {
-    const svg = getQrSvg()
-    if (!svg) {
-      return
-    }
-    downloadSvgElement(svg, `${buildQrFileBase(trimmedName, jalaliDate)}.svg`)
   }
 
   async function downloadPng() {
@@ -127,31 +118,6 @@ export function BarcodeMakerPage() {
                 <Label className="text-amber-100">تاریخ تولد (جلالی)</Label>
                 <JalaliDatePicker value={jalaliDate} onChange={setJalaliDate} />
               </div>
-              {inviteUrl ? (
-                <div className="space-y-2 rounded-2xl border border-primary/20 bg-black/20 p-3">
-                  <p className="flex items-center gap-2 text-xs text-slate-400">
-                    <Link2 className="size-3.5" />
-                    لینک دعوت‌نامه
-                  </p>
-                  <p className="break-all text-xs leading-relaxed text-slate-200" dir="ltr">
-                    {inviteUrl}
-                  </p>
-                  <div className="flex flex-wrap gap-2 pt-1">
-                    <Button type="button" size="sm" onClick={() => void copyLink()}>
-                      {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
-                      {copied ? 'کپی شد' : 'کپی لینک'}
-                    </Button>
-                    <Button type="button" size="sm" onClick={() => void downloadPng()}>
-                      <ImageDown className="size-4" />
-                      دانلود عکس PNG
-                    </Button>
-                    <Button type="button" size="sm" variant="outline" onClick={downloadSvg}>
-                      <Download className="size-4" />
-                      دانلود SVG
-                    </Button>
-                  </div>
-                </div>
-              ) : null}
             </div>
           </section>
 
@@ -167,6 +133,16 @@ export function BarcodeMakerPage() {
                     <p className="text-sm text-slate-500">
                       {toPersianDigits(formatJalaliYmd(jalaliDate))}
                     </p>
+                  </div>
+                  <div className="flex flex-wrap justify-center gap-2">
+                    <Button type="button" size="sm" onClick={() => void copyLink()}>
+                      {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
+                      {copied ? 'کپی شد' : 'کپی لینک'}
+                    </Button>
+                    <Button type="button" size="sm" onClick={() => void downloadPng()}>
+                      <ImageDown className="size-4" />
+                      دانلود عکس PNG
+                    </Button>
                   </div>
                   <div className="rounded-xl bg-white p-3">
                     <QRCode value={inviteUrl} size={200} level="M" bgColor="#ffffff" fgColor="#0b1020" />
