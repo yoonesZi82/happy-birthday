@@ -76,7 +76,7 @@ export function BirthdayPage() {
           <div className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-gradient-to-r from-amber-500/20 via-indigo-500/20 to-amber-500/20 px-5 py-1.5 text-sm font-semibold tracking-wider text-primary shadow-lg">
             🎉 خوش آمدید • اسکن شده از کیو‌آر کد اختصاصی
           </div>
-          <h1 className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-500 bg-clip-text text-4xl leading-tight font-extrabold text-transparent md:text-6xl">
+          <h1 className="bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-500 bg-clip-text text-[clamp(1.35rem,5.8vw,3.75rem)] leading-tight font-extrabold whitespace-nowrap text-transparent">
             زادروزت مبارک،{' '}
             <span className="text-white underline decoration-primary/50 decoration-wavy">
               {nick} جان
