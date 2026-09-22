@@ -1,0 +1,73 @@
+.glass-panel {
+  background: rgba(14, 20, 39, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    inset 0 0 20px rgba(212, 175, 55, 0.05);
+}
+
+.glass-gold-glow {
+  box-shadow:
+    0 0 35px rgba(234, 179, 8, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes float-up {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-6deg) scale(0.85);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(12px, -115vh, 0) rotate(18deg) scale(1.15);
+    opacity: 0;
+  }
+}
+
+.balloon {
+  bottom: -2rem;
+  will-change: transform, opacity;
+  animation-name: float-up;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+  animation-fill-mode: forwards;
+}
+
+@keyframes sound-bar {
+  0%,
+  100% {
+    height: 6px;
+  }
+  50% {
+    height: 22px;
+  }
+}
+
+.sound-bar {
+  animation: sound-bar 1s ease-in-out infinite;
+}
+
+.sound-bar-1 {
+  animation-duration: 1.1s;
+}
+
+.sound-bar-2 {
+  animation-duration: 0.8s;
+  animation-delay: 0.2s;
+}
+
+.sound-bar-3 {
+  animation-duration: 1.4s;
+  animation-delay: 0.4s;
+}
+
+.sound-bar-4 {
+  animation-duration: 0.9s;
+  animation-delay: 0.1s;
+}
